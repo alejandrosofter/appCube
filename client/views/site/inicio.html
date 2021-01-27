@@ -1,0 +1,49 @@
+ <template name="inicio">
+  <div style="" class="col-md-10">
+<h1>BIENVENIDO A <b>CUBE</b>! <small>Tecnologia en tus cultivos</small></h1>
+<div class="col-md-5">
+<h3><i class="fas fa-hdd"></i> MIS EQUIPOS</h3>
+ 
+{{> reactiveTable id="tabla" class="table table-sm" settings=settings}}
+
+ <h3><i class="fas fa-tasks"></i> TAREAS</h3>
+ 
+{{> reactiveTable id="tablatas" class="table table-sm" settings=settingsTareas}}
+</div>
+<div class="col-md-7">
+{{> reactiveTable id="tablae" class="table table-sm" settings=settingsEventos}}
+</div>
+ 
+</div>
+  </template> 
+  <template name="accionesEquipos2">
+  <div class="acciones" style="display:none">
+      
+      
+    <button title="Actualizar" type="button" id="ver" class="actualizarEquipo btn  btn-xs btn-primary" aria-label="Left Align">  <i class="fas fa-sync-alt"></i></button>
+    <button title="Ver Eventos" type="button" id="ver" class="activar btn  btn-xs btn-primary" aria-label="Left Align">  <i class="fas fa-calendar-week"></i> </button>
+        <button title="Editar" type="button" id="editar" class="activar btn  btn-xs btn-success" aria-label="Left Align">  <i class="fas fa-pencil-alt"></i> </button>
+  <button title="Quitar" type="button" id="delete" class="delete btn  btn-xs btn-danger" aria-label="Left Align">  <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button>
+ 
+  </div>
+</template>
+<template name="ctaCte">
+{{> reactiveTable id="tablaCta" settings=settingCta}}
+</template>
+<template name="accionesCta">
+<div class="acciones" style="display:none">
+  <div class="btn-group">
+  <button title="Pagos" type="button" class="btn btn-default dropdown-toggle btn-xs btn-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     {{#if tienePagos}} <span class="label label-primary">{{cantidadPagos}}</span>{{/if}}
+<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#" class="pagos">Listado Pagos</a></li>
+    <li><a href="#" class="nuevoPago">Nuevo Pago</a></li>
+  </ul>
+</div>
+
+  </div>
+
+</template>
+

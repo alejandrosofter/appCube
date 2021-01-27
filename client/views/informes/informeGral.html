@@ -1,0 +1,66 @@
+<template name="informeGral">
+  <h1><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> <b>INFORME GRAL</b> <small> </small></h1>
+
+ <div  class='col-md-2'>
+    <div class="form-inline">
+   <input class="form-control" id="anoSeleccion" type="number" value="{{anoSeleccion}}" style="width:80px;float:left" placeholder="Año">
+  
+      <button  id="buscarGral" style="float:right" type="submit" class="btn btn-primary">  <span  class="glyphicon glyphicon-search" aria-hidden="true"></span></button> 
+     </div>
+     
+  <div>
+  <br><br><br>
+   <ul class="list-group">
+
+    {{#each mes in meses}}
+     {{>cadaMesGral mes=mes}}
+   {{/each}}
+  
+</ul>
+  </div>
+   
+  </div>
+   <div  class='col-md-6'>
+      <div id="printArea">
+        <h2>DETALLE <b>MENSUAL</b></h2>
+        <table class="table table-condensed">
+<thead></thead>
+<tbody>
+
+ {{#each item in itemsSeleccion}}
+     <tr><th>{{item.tipo}}</th><td>$ {{item.importe}}</td></tr>
+   {{/each}}
+<tr><th><big>TOTAL</big></th><th><big>$ {{totalMes}}</big></th></tr>
+</tbody>
+  </table>
+    
+     <h2>LISTADO <b>DEUDORES</b>  <button  id="buscarDeudores" style="float:right" type="submit" class="btn btn-success">  <span  class="glyphicon glyphicon-search" aria-hidden="true"></span></button> 
+    </h2>
+        <table class="table table-condensed">
+<thead></thead>
+<tbody>
+
+
+  <tr><th>CLIENTE</th><th>$ IMPORTE</th><th>$ PAGO</th><th>MOTIVO...</th><th>$ DEBE</th></tr>
+   {{#each itemsMorosos}}
+   {{>cadaDeudor}}
+   
+   {{/each}}
+<tr><th></th><th></th><th></th><th><big style="color:red">TOTAL DEUDA</big></th><th><big style="color:red">$ {{totalSaldo}}</big></th></tr>
+</tbody>
+  </table>
+     
+     </div>
+     
+
+  </div>
+     
+
+</template>
+<template name="cadaDeudor">
+<tr><th>{{cliente}} / <small>{{telefono}}</small></th><td>$ {{importe}}</td><td>$ {{importePago}}</td><td>{{descripcionCliente}}</td><td>$ {{importeSaldo}}</td></tr>
+</template>
+<template name="cadaMesGral">
+<li class="list-group-item"><a style="cursor:pointer" class="mesSeleccion">{{mes}}</a>  
+  <span class="mesVentas label {{claseTotalMes}}" style="cursor:pointer;float:right">$ {{totalMes}}</span> </li>
+</template>

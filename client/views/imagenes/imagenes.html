@@ -1,0 +1,47 @@
+<template name="nuevoArchivo">
+    <div id="pagosOrdenModal" class="modal fade"> 
+        <div class="modal-dialog ">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><b> AGREGAR IMAGEN </b> {{tipo}}</h4>
+                </div>
+                <div class="modal-body">
+                     <input type="file" id="archivos">
+                  <i>Seleccione la imagen a ingresar!</i>
+
+                    
+                  
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</template>
+<template name="accionesArchivos">
+   <div class="acciones" style="display:">
+
+     <button title="Quitar" type="button" class="delete btn  btn-xs btn-danger" aria-label="Left Align">  <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button>
+  </div>
+</template>
+<template name="archivos">
+    <div id="pagosOrdenModal" class="modal fade"> 
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title"><span class="glyphicon glyphicon-file" aria-hidden="true"></span><b> ARCHIVOS </b> {{tipo}}</h4>
+                </div>
+                <div class="modal-body">
+                    {{> reactiveTable id="tabla" settings=settings}}
+                  <div class="imageView">
+
+  </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</template>

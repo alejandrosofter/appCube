@@ -1,0 +1,34 @@
+<template name="resultadoImportar">
+  <div class="modal fade bs-example-modal-lg" tabindex="" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+       <div class="modal-header">
+                    <h4 class="modal-title">RESULTADOS de la carga de <small>socios</small></h4>
+                </div>
+                <div class="modal-body">
+               {{this}}
+ </div>
+    </div>
+  </div>
+</div>
+
+</template>
+<template name="importarProductos">
+<h1><span class="glyphicon glyphicon-import" aria-hidden="true"></span> IMPORTAR PRODUCTOS<small>.cvs</small> </h1>
+
+<h3>Ingrese el archivo <small> .cvs separados por coma</small></h3>
+<div class="fileupload fileupload-new" data-provides="fileupload">
+   <span class="btn btn-file">
+      <span class="fileupload-new"></span>
+      <span class="fileupload-exists">{{file.label.de}}</span>
+      <input name="{{file.name}}" class="file-upload-input" method="{{file.method}}" type="file">
+     Borrar datos Anteriores <input id="borrarDatosAnteriores" type="checkbox">
+   </span>
+   <span class="fileupload-preview">
+   </span>
+   <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+</div>
+  
+  <br>
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> <i>Al importar productos, los productos actualmente se borraran.. cuidado si es que <b>no quieres borrar los que ya existen</b>!</i>
+</template>

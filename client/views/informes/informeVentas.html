@@ -1,0 +1,65 @@
+<template name="informeVentas">
+  
+   <h1><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span> <b>INFORME VENTAS</b> <small> realizadas</small></h1>
+ <div  class='col-md-2'>
+   
+   <span style="float:right" class="label label-primary">{{totalAno}} </span>
+   <input class="form-control" id="anoSeleccion" type="number" value="{{anoSeleccion}}" style="width:80px;float:left" placeholder="Año"><br><br><br>
+   
+   <ul class="list-group">
+  
+    {{#each mes in meses}}
+     {{>cadaMesVentas mes=mes}}
+   {{/each}}
+  
+</ul>
+   
+  </div>
+   <div  class='col-md-3'>
+  <ul class="list-group">
+  <h2>POR <b>::DIA</b></h2>
+    <span class="label label-default">EFECTIVO</span><span class="label label-success">DEBITO</span><span class="label label-danger">CREDITO</span>
+    {{#each dia in dias}}
+     {{>cadaDiaVentas dia=dia}}
+   {{/each}}
+  
+</ul>
+  </div>
+   <div  class='col-md-6'>
+      <div id="printArea">
+       {{>detalleMesVentas mes=mesSeleccion items=itemsSeleccion}}
+     
+     
+     </div>
+     
+      <button style="width:100%" id="imprimir" class="btn btn-success">
+       <span  class="glyphicon glyphicon-print" aria-hidden="true"></span>
+       Imprimir
+     </button>
+  </div>
+     
+ 
+</template>
+<template name="cadaMesVentas">
+<li class="list-group-item"><a style="cursor:pointer" class="mesSeleccion">{{mes}}</a>  
+  <span class="mesVentas label {{claseTotalMes}}" style="cursor:pointer;float:right">$ {{totalMes}}</span> </li>
+</template>
+  <template name="cadaDiaVentas">
+<li class="{{claseDiaSemana}} list-group-item"><a style="cursor:pointer" class="diaSeleccion">{{dia}}</a>  
+  <span class="diaVentas label {{claseTotalDia}}" style="cursor:pointer;float:right">$ {{totalDia}}  </span> <br>{{formaPagoDia}}</li>
+
+</template>
+<template name="detalleMesVentas">
+<h2>DETALLE DEL <b>{{tituloDia}} {{tituloMes}}</b></h2>
+  <table class="table table-condensed">
+<thead><tr><th>FECHA</th><th>CLIENTE</th><th>DETALLE</th><th>IMPORTE</th></tr></thead>
+    <tbody>
+ {{#each items}}
+{{>filaDetalleMesSeleccionVentas}}
+ {{/each}}
+        </tbody>
+  </table>
+</template>
+<template name="filaDetalleMesSeleccionVentas">
+  <tr><td>{{fecha}}</td><td>{{cliente}}</td><td>{{detalle}}</td><td>{{importeDet}}</td></tr>   
+</template>

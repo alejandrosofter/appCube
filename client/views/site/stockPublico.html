@@ -1,0 +1,87 @@
+<template name="stock">
+{{#each productos}}
+ {{>cadaProducto}}
+{{/each}}
+</template>
+
+<template name="cadaProducto">
+<div class="panel panel-default col-md-6 .col-md-offset-3">
+	
+	<div class="imagenStock text-center">
+		<h2>{{nombreProducto}}</h2>
+	 <img src="{{imagen.url store='thumbs'}}" alt="thumbnail"></div>
+	  <div class="panel-footer">
+	  	<div style="float:left;"><h4 style="color:green;">{{precio}}</h4><h5 style="color:#4cb779;">{{precio2}}</h5> </div>
+<p style="float:right;">{{disponible}}</p><br><br>
+<div style="float:right;"><a id="agregarProducto" class="btn btn-success">AGREGAR</a></div>
+
+
+	 </div>
+</div>
+</template>
+
+
+<template name="accionesPedidoPublico">
+  <div class="acciones" style="display:none">
+  <button title="Quitar" type="button" id="delete" class="btn  btn-xs btn-danger" aria-label="Left Align">  <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button>
+      
+  </div>
+</template>
+<template name="loginEntidadPublica">
+    <div class="modal fade"> 
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> TUS DATOS PARA <b>ENTREGA!</b></h4>
+                </div>
+                <div class="modal-body">
+                	 <div id="paso1">
+                	 	<h2>NRO DE TELEFONO</h2>
+                	 	<input id="tel" type="number" placeholder="297xxxxxxxx" class="form-control" style="width: 350px; height: 55px; font-size: 45px;color:green">
+                	 		<br>
+                	 	<a style="width: 100%" class="btn btn-success" id="btnAceptarNro">INGRESAR</a>
+                	 </div>
+                	 <div style="display:none" id="paso2">
+                	 	 {{#autoForm  collection="Entidades" id="nuevaEntidadPublica_" type="insert"}}
+
+					     <fieldset>
+					      {{> afQuickField name='razonSocial'}}
+					       {{> afQuickField name='nroDocumento'}}
+					       {{> afQuickField name='telefono' style="width:180px" placeholder="Ej. 297 - - - - - -"  type="tel"}}
+					      {{> afQuickField name='email'  type="email"}}
+					      {{> afQuickField name='domicilio' }} <i>importante para llevar el pedido</i>
+					         {{> afQuickField value="false" type="hidden" name='default' }}
+					    </fieldset>
+					    <button type="submit" disabled="{{disableButtons}}" style="width:100%" class="btn btn-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> AGREGAR</button>
+
+					 {{/autoForm}}
+                	 </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</template>
+<template name="finalizarPedido">
+    <div class="modal fade"> 
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span><b> HOLA {{razonSocial}}! </b> FINALIZANDO PEDIDO POR <b>$ {{importeTotal}}</b></h4>
+                </div>
+                <div class="modal-body">
+                	 {{> reactiveTable id="tabla" settings=settings}}
+                	 <h4>DOMICLIO DE ENTREGA</h4>
+               <input id="domicilio" value="{{domicilioEntrega}}" placeholder="Domicilio entrega" class="form-control" style="width: 350px">
+               <br>
+                  <a id="btnFinalizar" style="width: 100%" class="btn btn-success">FINALIZAR PEDIDO!</a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,74 @@
+<template name="estadisticaCompras">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+<h1><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> COMPRAS <small>Estadisticas y Datos</small></h1>
+<div class="col-md-2">
+  
+
+  <ul class="list-group">
+     <li class="list-group-item">
+       <form class="form-inline">
+  <div class="form-group">
+      <label >Año</label>
+    <input class="form-control" placeholder="Año" style="width:70px" value="{{anoActual}}" type="text" id="ano"/>
+      <a id="buscar" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+  </div>
+  </form>
+    </li>
+     {{#each items}}
+      {{> mesEstadistica mes=_id total=total min=min max=max}}
+    {{/each}}
+</ul>
+  </div>
+  <div class="col-md-8">
+
+    
+  </div>
+  <div class="col-md-4">
+     <canvas style="float:left" width="350px" height="350px" id="pieSemana"></canvas>
+   
+  </div>
+   <div class="col-md-4">
+    <canvas  style="float:right" width="350px" height="350px" id="puntoSemana"></canvas>
+   
+  </div>
+</template>
+
+<template name="mesEstadisticaCompra">
+ <li class="list-group-item"><a class="mes" value="{{mes}}">{{mesLetras}} </a> <span class="label label-success">$ {{total}}</span></li>
+</template>
+<template name="detalleMesCompra">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">DETALLE <b>{{mes}}</b></h4>
+                </div>
+
+                <div class="modal-body">
+                    <table class="table table-condensed">
+                     <thead> <tr><th style="width:150px">Fecha</th><th >Entidad</th><th style="width:90px">TOTAL</th></tr></thead>
+                      <tbody>
+                        {{#each items}}
+                           {{> filaDetalleMesCompra}}
+                        {{/each}}
+                          <tr><td ></td><td><p style="text-align:right"><b>TOTAL</b></p></td><td > <b>$ {{total}}  </b></td></tr>
+                        </tbody>
+                  </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</template>
+<template name="itemsVentaEstadisticaCompra">
+  <tr style="display:none" class="filaDetalleEstadistica" id="{{idFila}}"><td ></td><td>{{cantidad}} | {{detalle}}</td><td >$ {{importe}}</td></tr>
+</template>
+<template name="filaDetalleMesCompra">
+  <tr class="filaMes"><td >{{fecha}}</td><td>{{razonSocial}}</td><td >{{importe}}</td></tr>
+   {{#each item in items}}
+         {{> itemsVentaEstadisticaCompra idFila=this._id doc=item }}
+   {{/each}}
+ 
+</template>

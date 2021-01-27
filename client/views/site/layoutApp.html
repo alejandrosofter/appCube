@@ -1,0 +1,76 @@
+<template name="layoutApp">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<div class="">
+  {{#if estaLogueado}} 
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">CUBE</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+       
+       
+        <!-- <li class="dropdown">
+          <a href="/equipos" class="dropdown-toggle"  role="button" aria-haspopup="true" aria-expanded="false">
+            <span style="color:#bf37af" class="glyphicon glyphicon-barcode" aria-hidden="true"></span>
+            Mis Equipos
+            </a>
+        </li> -->
+         <li class="dropdown">
+         <a style="color:#62bbff" class='misDatos' href="#"><i class="fas fa-user"></i> Mis Datos</a>
+        </li>
+        <li class="dropdown">
+         <a style="color:#62bbff" class='nuevoEquipo' href="#"><i class="fas fa-hdd"></i> Nuevo Equipo</a>
+        </li>
+        
+       
+       
+       
+     
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <div style="float:right;color:red;display:none" id='offline'><small style="padding:5px">offline</small> </div>
+         <div style="float:right;color:green;display:none" id='online'><small style="padding:5px">online</small> </div>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{nombreUsuario}} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+             {{#if esAdmin}}<li><a href="/datosSistema">Datos de Sistema</a></li>{{/if}}
+             {{#if esAdmin}}<li><a href="/usuarios">Usuarios</a></li>{{/if}}
+             
+            <li><a href="#" class="salir">Salir</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+{{/if}}
+  <aside>
+    {{> yield "aside"}}
+  </aside>
+
+  <div class="container-fluid">
+    {{> yield}}
+  </div>
+
+  <footer>
+    {{> footer}}
+  </footer>
+  </div>
+</template>
+<template name='footer'>
+<div class="bs-docs-footer">
+  <br><br>
+  <p align="center"><small>Sistema desarrolado por <b>SOFTER</b> softer.com.ar <br><small>Cualquier inconveniente comunicarse al <b>2975447771</b> o enviar correo a <b>info@softer.com.ar</b></small> </small></p>
+ </div>
+</template>

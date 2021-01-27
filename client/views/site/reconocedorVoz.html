@@ -1,0 +1,46 @@
+<template name="reconocedorVoz">
+	<p>Tengo <b>reconocimiento de VOZ</b> presiona <b><span style="color:green">F2</span> para inicar reconocimiento</b> y <b><span style="color:green">ENTER</span> para finalizar</b>.</p>
+<div class="col-md-7" id="panelVoz">
+<div class="col-md-2">
+	<h3><b>ENTIDAD</b></h3>
+	<table class="table table-condensed">
+		<tbody>
+			<tr><th>Razon Social</th> <td>{{entidad_razonSocial}}</td></tr>
+			<tr><th>Telefono</th> <td>{{entidad_telefono}}</td></tr>
+			<tr><th>D.N.I</th> <td>{{entidad_nroDocumento}}</td></tr>
+		</tbody>
+	</table>
+</div>
+<div class="col-md-2">
+	<h3><b>CUENTA</b></h3>
+	<table class="table table-condensed">
+		<tbody>
+			<tr><th>Nombre Cuenta</th> <td>{{cuenta_nombreCuenta}}</td></tr>
+		</tbody>
+	</table>
+</div>
+<div class="col-md-2">
+	<h3><b>PAGO</b></h3>
+	<table class="table table-condensed">
+		<tbody>
+			<tr><th>Nombre Cuenta</th> <td>{{cuenta_nombreCuenta}}</td></tr>
+		</tbody>
+	</table>
+</div>
+<div class="col-md-2">
+	<h3><b>NRO ORDEN</b></h3>
+	<table class="table table-condensed">
+		<tbody>
+			<tr><th>Nro</th> <td>{{nroOrdenSeleccion}}</td></tr>
+		</tbody>
+	</table>
+</div>
+ 
+<div style="float:right" class="col-md-2">
+{{#each comando in comandos}}
+{{comando}}<br>
+{{/each}}
+</div>
+<span id="textoReconoce"></span>
+</div>
+</template>

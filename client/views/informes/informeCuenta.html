@@ -1,0 +1,13 @@
+<template name="informeCuenta">
+<h1><b>INFORME</b> de cuenta</h1>
+<div style="width: 480px;height: 50px" class="form-inline">
+	<input style="width: 80px" id="fechaDesde" class="form-input" placeholder="Desde">
+	<input style="width: 80px" id="fechaHasta" class="form-input" placeholder="Hasta">
+	<select style="width: 200px" id="idCuenta"></select>
+	<button class="btn btn-sm btn-success" id="btnBuscar">Buscar</button>
+</div>
+{{> reactiveTable id="tableinforme" settings=settings}}
+<div style="float:right;">
+<h3><b>TOTAL $</b>{{total}}</h3>
+</div>
+</template>

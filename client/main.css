@@ -1,0 +1,150 @@
+.filaSeleccionCategorias{
+  background-color:#71d46f;
+  color: #2b8fca;
+  font-weight: bolder;
+  
+}
+.importeDebe{
+  width: 70px;
+  font-size: 11px;
+  color:blue
+}
+.importeHaber{
+  width: 120px;
+  font-size: 11px;
+  color:green
+}
+.importeSaldo{
+  width: 90px;
+  font-size: 12px;
+}
+.fecha{
+  width: 90px;
+  font-size: 10px;
+}
+.entidadVoz{
+  cursor:pointer;
+}
+/*.select2-container {
+width: 100% !important;
+padding: 0;
+}*/
+.compraStockeada{
+
+  color:#8e8e8e
+}
+.saldoPositivo{
+
+  color:green
+}
+.saldoNegativo{
+
+  color:red
+}
+.claseBajaDia{
+  background-color:grey;
+  color:grey
+}
+.mes{
+  cursor:pointer;
+}
+.hijo_1{
+  font-size:10px;
+  text-indent: 10px; 
+   color:#616363;
+}
+.hijo_2{
+  font-size:9px;
+  text-indent: 20px;
+   color:#7d7d7d;
+}
+.hijo_3{
+  font-size:8px;
+  text-indent: 30px;
+   color:#9a9a9a;
+}
+.hijo_4{
+  font-size:7px;
+  text-indent: 40px;
+   color:#b5b5b5;
+}
+.hijo_5{
+  font-size:6px;
+  text-indent: 50px;
+   color:#b9b9b9;
+}
+.razonSocial{
+  color:#669999;
+    font-weight: bolder;
+    font-size:14px;
+  
+}
+.codigoInterno {
+   color: #337ab7;
+  font-weight: bolder;
+}
+.subTitulo{
+color: rgba(51, 122, 183, 0.57);
+}
+.titulo{
+  color:#337ab7;
+}
+body{
+  font-size:12px;
+}
+tbody > tr:hover {
+  background-color: #71d46f;
+  color: #2b8fca;
+  font-weight: bolder;
+        }
+.filaSeleccionCategorias:hover{
+  background-color: #71d46f;
+  
+}
+.dataTables_processing {
+left: 50%;
+position: absolute;
+top: 50%;
+  width:0px;
+  height:0px;
+  
+z-index: 100;
+}
+.loader2{
+  height: 100%;
+    width:100%;
+    margin:0;
+    padding:0;
+    background:url(/images/loading2.gif);
+    background-position:50% 50%;
+    background-repeat:no-repeat;
+}
+.filaDetalleEstadistica{
+  font-color:#849be2;
+  font-size:10px;
+   background-color: #ccc;
+}
+.seleccionFilaDetalle{
+  font-color:blue;
+   background-color: #ccc;
+}
+[data-required] label:after {
+  content:" *";
+   color:red;
+}
+
+.nombreProducto{
+  color: #2b77ca;
+  font-size:14px;
+  font-weight: bold;
+}
+.razonSocial{
+  color: #2b77ca;
+  font-size:14px;
+  font-weight: bold;
+}
+.razonSocialCliente{
+  color: #2b77ca;
+  font-size:14px;
+  font-weight: bold;
+}
